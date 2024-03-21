@@ -1,5 +1,6 @@
+
 transformers==4.38.2
 streamlit==1.10.0
-tensorflow==2.0
+tensorflow>=2.7.0
 torch
 torchvision
