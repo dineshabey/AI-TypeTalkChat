@@ -1,6 +1,6 @@
 ---
 title: AI Chat
-emoji: 💬🗣️
+emoji: 💬
 colorFrom: indigo
 colorTo: green
 sdk: streamlit
@@ -11,3 +11,4 @@ pinned: false
 
 # AI-TypeTalkChat
 AI-TypeTalkChat demo of Huggingface 🤗 spaces deployment of a streamlet python AI app
+
