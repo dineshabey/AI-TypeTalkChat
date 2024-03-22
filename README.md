@@ -1,6 +1,6 @@
 ---
 title: AI Chat
-emoji: 💬
+emoji: 💬🗣️ 
 colorFrom: indigo
 colorTo: green
 sdk: streamlit
