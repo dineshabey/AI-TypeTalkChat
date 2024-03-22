@@ -1,5 +1,9 @@
+# app.py
+
 from transformers import pipeline
 import streamlit as st
+
+
 
 # Set up Streamlit app title and page width
 st.set_page_config(page_title='Simple Chatbot with Streamlit', layout='wide')
@@ -11,73 +15,19 @@ chatbot = pipeline("text2text-generation", model="facebook/blenderbot-400M-disti
 if 'chat_history' not in st.session_state:
     st.session_state['chat_history'] = []
 
-# Define Streamlit app layout
-st.markdown("""
-<style>
-    body {
-        background-color: #f0f2f6;
-    }
-    .stApp {
-        max-width: 800px;
-        margin: auto;
-        padding-top: 50px;
-    }
-    .stTextInput {
-        margin-bottom: 20px;
-    }
-    .stButton button {
-        background-color: #4CAF50; /* Green */
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-    .stButton button:hover {
-            background-color: #7EC0EE; /* Darker sky blue on hover */
-        }
-    .chat-container {
-        padding:6px;
-        border-radius: 5px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
-        # border: 1px solid #d3d3d3;
-        overflow: hidden;
-    }
-    .user-message {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        margin: 5px;
-        border-radius: 5px;
-        clear: both;
-        float: left;
-    }
-    .bot-message {
-        background-color: #f1f1f1;
-        color: black;
-        padding: 10px 20px;stButton
-        margin: 5px;
-        border-radius: 5px;
-        clear: both;
-        float: right;
-    }
- 
-</style>
-""", unsafe_allow_html=True)
+# Read the CSS file
+with open("./style/style.css") as f:
+    css = f.read()
+
+# Inject CSS into the Streamlit app
+st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 # Define Streamlit app layout
 st.markdown("<h1 style='color: orange;'>💬 Chatbot</h1>", unsafe_allow_html=True)
-st.caption("🚀 Chat bot created By :- [Dinesh Abeysinghe (AI-ML Engineer)](https://www.linkedin.com/in/dinesh-abeysinghe-bb773293)")
+st.caption("🚀 Chat bot created By :- [Dinesh Abeysinghe](https://www.linkedin.com/in/dinesh-abeysinghe-bb773293)")
 
 # Create text area for user input
 user_input = st.text_input("", placeholder="Your message")
-
 
 # Define Streamlit app behavior
 if st.button('Send'):
@@ -95,8 +45,7 @@ if st.button('Send'):
 
         # Update chat history in session state
         st.session_state['chat_history'] = chat_history
-        
- 
+
 # Create text area for chat history
 chat_area = st.empty()
 
